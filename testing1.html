@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Control Servo Motor</title>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyDuWYIuWjHtG5ZEYUBtC7u1bxgmW7YcNP8",
+  authDomain: "automatic-fish-feeder-3c20c.firebaseapp.com",
+  databaseURL: "https://automatic-fish-feeder-3c20c-default-rtdb.firebaseio.com",
+  projectId: "automatic-fish-feeder-3c20c",
+  storageBucket: "automatic-fish-feeder-3c20c.appspot.com",
+  messagingSenderId: "182717507650",
+  appId: "1:182717507650:web:9c328bfaa244de474be5db",
+  measurementId: "G-T4ST1QQZLT"
+    };
+    firebase.initializeApp(firebaseConfig);
+    var database = firebase.database();
+    var buttonStateRef = database.ref("buttonState");
+    
+    function buttonClicked() {
+      buttonStateRef.set(1);
+    }
+  </script>
+</head>
+<body>
+  <h1>Control Servo Motor</h1>
+  <button onclick="buttonClicked()">Move Servo Motor</button>
+</body>
+</html>
