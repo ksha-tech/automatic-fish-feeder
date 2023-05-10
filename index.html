@@ -18,14 +18,24 @@
     firebase.initializeApp(firebaseConfig);
     var database = firebase.database();
     var buttonStateRef = database.ref("buttonState");
+    var scheduleTimeRef = database.ref("scheduleTime");
     
     function buttonClicked() {
       buttonStateRef.set(1);
+    }
+    
+    function scheduleClicked() {
+      var scheduleTime = document.getElementById("scheduleTime").value;
+      scheduleTimeRef.set(scheduleTime);
     }
   </script>
 </head>
 <body>
   <h1>Control Servo Motor</h1>
-  <button onclick="buttonClicked()">Move Servo Motor</button>
+  <button onclick="buttonClicked()">Feed Now</button>
+  <h2>Schedule Feeding</h2>
+  <label for="scheduleTime">Enter feeding time:</label>
+  <input type="datetime-local" id="scheduleTime" name="scheduleTime">
+  <button onclick="scheduleClicked()">Schedule</button>
 </body>
 </html>
