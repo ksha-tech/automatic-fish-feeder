@@ -17,13 +17,13 @@
     };
     firebase.initializeApp(firebaseConfig);
     var database = firebase.database();
-    var buttonStateRef = database.ref("buttonState");
-    var scheduleTimeRef = database.ref("scheduleTime");
-    
+    var buttonStateRef = database.ref("feednow");
+    var scheduleTimeRef = database.ref("schedule");
+
     function buttonClicked() {
       buttonStateRef.set(1);
     }
-    
+
     function scheduleClicked() {
       var scheduleTime = document.getElementById("scheduleTime").value;
       scheduleTimeRef.set(scheduleTime);
@@ -35,7 +35,7 @@
   <button onclick="buttonClicked()">Feed Now</button>
   <h2>Schedule Feeding</h2>
   <label for="scheduleTime">Enter feeding time:</label>
-  <input type="datetime-local" id="scheduleTime" name="scheduleTime">
+  <input type="time" id="scheduleTime" name="scheduleTime">
   <button onclick="scheduleClicked()">Schedule</button>
 </body>
 </html>
